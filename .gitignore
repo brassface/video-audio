@@ -1,0 +1,21 @@
+# Go build output
+/video-audio
+/*.exe
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace
+/bin/
+/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+

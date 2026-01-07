@@ -1,0 +1,32 @@
+[Unit]
+Description=Video to Audio Extractor (HTTP)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/video-audio
+ExecStart=/opt/video-audio/video-audio
+Restart=always
+RestartSec=2
+
+# 环境变量（可按需改）
+Environment=ADDR=:3003
+Environment=MAX_UPLOAD_MB=2048
+Environment=FFMPEG_TIMEOUT_SEC=1800
+Environment=TMP_DIR=/tmp
+Environment=FFMPEG_PATH=ffmpeg
+Environment=MP3_BITRATE=160k
+Environment=MP3_CHANNELS=2
+Environment=MP3_SAMPLE_RATE=44100
+Environment=DEFAULT_VIDEO_PATH=/opt/video-audio/default.mp4
+
+# 基础加固
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
+
+
